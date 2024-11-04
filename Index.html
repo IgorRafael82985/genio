@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site do Gênio</title>
+</head>
+<style>
+    body {
+        background-image: url(Fundo\ do\ site\ do\ genio13.jpg);
+        background-size: 100%;
+    }
+</style>
+<body>
+    <!-- O elemento de áudio -->
+    <audio id="musica" preload="auto">
+        <source src="Fundo Musical Gênio.mpeg" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <script>
+        // Verifica se o usuário interagiu antes de tocar a música
+        document.addEventListener("DOMContentLoaded", function() {
+            const musica = document.getElementById("musica");
+
+            // Tenta tocar após a primeira interação do usuário
+            document.addEventListener("click", () => {
+                if (musica.paused) {
+                    musica.play().catch(error => {
+                        console.log("O navegador bloqueou a reprodução automática.");
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
